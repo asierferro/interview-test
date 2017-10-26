@@ -6,10 +6,9 @@ export default class Emitter {
 
     subscribe( eventName, fn ) {
         if( !this.events[eventName] ) {
-        this.events[eventName] = [];
+            this.events[eventName] = [];
         }
         this.events[eventName].push(fn);
-        console.log(this.events)
         return this.unsubscribe.bind(this, eventName, fn);
     }
     
@@ -29,8 +28,7 @@ export default class Emitter {
         let result = [];
         event.forEach(fn => {
             let a = fn.apply(null, args);
-            console.log(a);
-           result.push(a);
+            result.push(a);
         });
         return result;
         }
